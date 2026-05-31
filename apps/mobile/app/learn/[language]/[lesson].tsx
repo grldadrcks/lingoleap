@@ -4,8 +4,8 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { supabase } from '../../../lib/supabase';
-import { courses, shouldIncrementStreak } from '@lingo/shared';
-import type { Language, QuizQuestion } from '@lingo/shared';
+import { courses, shouldIncrementStreak } from '../../../lib/shared';
+import type { Language, QuizQuestion } from '../../../lib/shared';
 
 type Phase = 'vocab' | 'quiz' | 'complete';
 

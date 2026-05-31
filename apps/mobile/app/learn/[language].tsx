@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { supabase } from '../../lib/supabase';
-import { courses } from '@lingo/shared';
-import type { Language } from '@lingo/shared';
+import { courses } from '../../lib/shared';
+import type { Language } from '../../lib/shared';
 
 export default function LanguageScreen() {
   const { language } = useLocalSearchParams<{ language: Language }>();

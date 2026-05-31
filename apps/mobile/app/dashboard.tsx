@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import { supabase } from '../lib/supabase';
-import { getStreakMessage } from '@lingo/shared';
+import { getStreakMessage } from '../lib/shared';
 
 interface Profile {
   username: string;
