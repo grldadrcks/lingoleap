@@ -209,6 +209,8 @@ export default function LessonClient() {
   // ── Complete ──────────────────────────────────────────────────────
   if (phase === "complete") {
     const isPerfect = score === lesson.quiz.length;
+    const lessonIndex = course.lessons.findIndex((l) => l.id === lessonId);
+    const nextLesson = course.lessons[lessonIndex + 1] ?? null;
     return (
       <main className="min-h-screen flex flex-col items-center justify-center px-4 text-center gap-5">
         <span className="text-6xl">{isPerfect ? "🌟" : "🎉"}</span>
@@ -238,9 +240,21 @@ export default function LessonClient() {
         )}
 
         <div className="flex gap-3 flex-wrap justify-center">
-          <Link href={`/learn/${language}`} className="px-5 py-3 rounded-xl bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition-colors text-sm">
-            Next Lesson
-          </Link>
+          {nextLesson ? (
+            <Link
+              href={`/learn/${language}/${nextLesson.id}`}
+              className="px-5 py-3 rounded-xl bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition-colors text-sm"
+            >
+              Next: {nextLesson.title} →
+            </Link>
+          ) : (
+            <Link
+              href={`/learn/${language}`}
+              className="px-5 py-3 rounded-xl bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition-colors text-sm"
+            >
+              All lessons done! 🏆
+            </Link>
+          )}
           <Link href="/dashboard" className="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-sm">
             Dashboard
           </Link>
