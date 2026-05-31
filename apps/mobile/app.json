@@ -11,6 +11,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.codemase.lingoleap",
       "adaptiveIcon": {
         "backgroundColor": "#10b981",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -26,6 +27,13 @@
     "plugins": [
       "expo-router",
       "expo-status-bar"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c9253703-9965-449e-b9ec-61f3bfbc78b2"
+      }
+    },
+    "owner": "codemase"
   }
 }
