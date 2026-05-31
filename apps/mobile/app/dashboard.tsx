@@ -19,6 +19,7 @@ const LANGUAGES = [
   { key: 'mandarin', flag: '🇨🇳', name: 'Mandarin', total: 3 },
   { key: 'french', flag: '🇫🇷', name: 'French', total: 3 },
   { key: 'japanese', flag: '🇯🇵', name: 'Japanese', total: 3 },
+  { key: 'korean', flag: '🇰🇷', name: 'Korean', total: 3 },
 ];
 
 export default function DashboardScreen() {

@@ -5,6 +5,7 @@ const languages = [
   { flag: "🇨🇳", name: "Mandarin", learners: "900M+ speakers" },
   { flag: "🇫🇷", name: "French", learners: "300M+ speakers" },
   { flag: "🇯🇵", name: "Japanese", learners: "125M+ speakers" },
+  { flag: "🇰🇷", name: "Korean", learners: "80M+ speakers" },
 ];
 
 export default function Home() {
@@ -30,7 +31,7 @@ export default function Home() {
           <span className="text-emerald-500">free</span>, one day at a time
         </h1>
         <p className="text-xl text-slate-500 dark:text-slate-400 max-w-xl">
-          Build daily streaks, master vocabulary, and become fluent in Spanish, Mandarin, French, or Japanese.
+          Build daily streaks, master vocabulary, and become fluent in Spanish, Mandarin, French, Japanese, or Korean.
         </p>
         <Link href="/auth/signup" className="px-8 py-4 rounded-xl bg-emerald-500 text-white text-lg font-bold hover:bg-emerald-600 transition-colors shadow-lg">
           Start learning — it&apos;s free
@@ -40,7 +41,7 @@ export default function Home() {
       {/* Languages */}
       <section className="flex flex-col items-center gap-8 px-6 py-16">
         <h2 className="text-3xl font-bold">Choose your language</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 w-full max-w-3xl">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 w-full max-w-4xl">
           {languages.map((lang) => (
             <Link
               key={lang.name}

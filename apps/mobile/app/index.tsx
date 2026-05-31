@@ -8,6 +8,7 @@ const LANGUAGES = [
   { flag: '🇨🇳', name: 'Mandarin' },
   { flag: '🇫🇷', name: 'French' },
   { flag: '🇯🇵', name: 'Japanese' },
+  { flag: '🇰🇷', name: 'Korean' },
 ];
 
 export default function WelcomeScreen() {
