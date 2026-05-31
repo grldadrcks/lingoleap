@@ -1,5 +1,7 @@
 export type Language = "spanish" | "mandarin" | "french" | "japanese" | "korean";
 
+export type QuizType = "standard" | "listening";
+
 export interface Word {
   word: string;
   translation: string;
@@ -12,6 +14,8 @@ export interface QuizQuestion {
   question: string;
   options: string[];
   correctIndex: number;
+  type?: QuizType;
+  listenWord?: string;
 }
 
 export interface Lesson {
@@ -36,6 +40,7 @@ export interface UserProfile {
   currentStreak: number;
   longestStreak: number;
   lastActiveDate: string | null;
+  xpTotal: number;
   createdAt: string;
 }
 
@@ -45,5 +50,13 @@ export interface UserProgress {
   lessonId: string;
   completed: boolean;
   score: number;
+  xpEarned: number;
   completedAt: string;
+}
+
+export interface Badge {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
 }

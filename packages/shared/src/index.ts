@@ -1,5 +1,6 @@
 export * from "./types";
 export * from "./streak";
+export * from "./xp";
 export { spanishCourse } from "./lessons/spanish";
 export { mandarinCourse } from "./lessons/mandarin";
 export { frenchCourse } from "./lessons/french";
