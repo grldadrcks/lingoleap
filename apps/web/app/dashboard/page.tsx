@@ -22,6 +22,7 @@ const languages = [
   { key: "spanish", flag: "🇪🇸", name: "Spanish", totalLessons: 3 },
   { key: "mandarin", flag: "🇨🇳", name: "Mandarin", totalLessons: 3 },
   { key: "french", flag: "🇫🇷", name: "French", totalLessons: 3 },
+  { key: "japanese", flag: "🇯🇵", name: "Japanese", totalLessons: 3 },
 ];
 
 export default function DashboardPage() {
@@ -99,7 +100,7 @@ export default function DashboardPage() {
         {/* Languages */}
         <div>
           <h2 className="text-xl font-bold mb-4">Your Languages</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {languages.map((lang) => {
               const completed = progress.filter((p) => p.language === lang.key).length;
               const pct = Math.round((completed / lang.totalLessons) * 100);

@@ -1,4 +1,4 @@
-export type Language = "spanish" | "mandarin" | "french";
+export type Language = "spanish" | "mandarin" | "french" | "japanese";
 
 export interface Word {
   word: string;

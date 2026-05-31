@@ -7,6 +7,7 @@ const LANGUAGES = [
   { flag: '🇪🇸', name: 'Spanish' },
   { flag: '🇨🇳', name: 'Mandarin' },
   { flag: '🇫🇷', name: 'French' },
+  { flag: '🇯🇵', name: 'Japanese' },
 ];
 
 export default function WelcomeScreen() {

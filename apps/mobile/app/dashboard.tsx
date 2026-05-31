@@ -18,6 +18,7 @@ const LANGUAGES = [
   { key: 'spanish', flag: '🇪🇸', name: 'Spanish', total: 3 },
   { key: 'mandarin', flag: '🇨🇳', name: 'Mandarin', total: 3 },
   { key: 'french', flag: '🇫🇷', name: 'French', total: 3 },
+  { key: 'japanese', flag: '🇯🇵', name: 'Japanese', total: 3 },
 ];
 
 export default function DashboardScreen() {
