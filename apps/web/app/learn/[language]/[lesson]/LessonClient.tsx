@@ -17,6 +17,23 @@ const LANG_CODES: Record<Language, string> = {
   korean: "ko-KR",
 };
 
+// Use native Capacitor TTS when available (Android WebView), fall back to Web Speech API
+async function speakText(text: string, langCode: string) {
+  try {
+    // @ts-ignore — dynamic import to avoid SSR issues
+    const { TextToSpeech } = await import("@capacitor-community/text-to-speech");
+    await TextToSpeech.speak({ text, lang: langCode, rate: 0.8, volume: 1.0, pitch: 1.0 });
+  } catch {
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(text);
+      utt.lang = langCode;
+      utt.rate = 0.8;
+      window.speechSynthesis.speak(utt);
+    }
+  }
+}
+
 export default function LessonClient() {
   const params = useParams();
   const router = useRouter();
@@ -39,12 +56,7 @@ export default function LessonClient() {
   }, [course, lesson, router]);
 
   const speak = useCallback((text: string) => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const utt = new SpeechSynthesisUtterance(text);
-    utt.lang = LANG_CODES[language] ?? "en-US";
-    utt.rate = 0.8;
-    window.speechSynthesis.speak(utt);
+    speakText(text, LANG_CODES[language] ?? "en-US");
   }, [language]);
 
   // Auto-speak word when card changes
