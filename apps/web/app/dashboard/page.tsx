@@ -84,24 +84,25 @@ export default function DashboardPage() {
         </div>
       </nav>
 
-      <div className="max-w-3xl mx-auto w-full px-6 py-10 flex flex-col gap-8">
+      <div className="max-w-3xl mx-auto w-full px-4 py-6 flex flex-col gap-6">
         {/* Streak Card */}
-        <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-6 text-white flex items-center justify-between">
-          <div>
+        <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-5 text-white flex items-center justify-between overflow-hidden">
+          <div className="min-w-0">
             <p className="text-emerald-100 text-sm font-medium">Current Streak</p>
-            <p className="text-5xl font-bold mt-1">{streak} 🔥</p>
-            <p className="text-emerald-100 mt-2">{getStreakMessage(streak)}</p>
+            <p className="text-4xl font-bold mt-1">{streak} 🔥</p>
+            <p className="text-emerald-100 mt-1 text-sm">{getStreakMessage(streak)}</p>
           </div>
-          <div className="text-right">
+          <div className="text-right shrink-0 ml-4">
             <p className="text-emerald-100 text-sm">Best streak</p>
-            <p className="text-2xl font-bold">{profile?.longest_streak ?? 0} days</p>
+            <p className="text-2xl font-bold">{profile?.longest_streak ?? 0}</p>
+            <p className="text-emerald-100 text-sm">days</p>
           </div>
         </div>
 
         {/* Languages */}
         <div>
-          <h2 className="text-xl font-bold mb-4">Your Languages</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+          <h2 className="text-xl font-bold mb-3">Your Languages</h2>
+          <div className="grid grid-cols-2 gap-3">
             {languages.map((lang) => {
               const completed = progress.filter((p) => p.language === lang.key).length;
               const pct = Math.round((completed / lang.totalLessons) * 100);
@@ -109,18 +110,18 @@ export default function DashboardPage() {
                 <Link
                   key={lang.key}
                   href={`/learn/${lang.key}`}
-                  className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col gap-3 hover:shadow-md hover:border-emerald-300 transition-all"
+                  className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 flex flex-col gap-2 hover:shadow-md hover:border-emerald-300 transition-all min-w-0"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-4xl">{lang.flag}</span>
-                    <span className="font-semibold text-lg">{lang.name}</span>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="text-2xl shrink-0">{lang.flag}</span>
+                    <span className="font-semibold text-sm truncate">{lang.name}</span>
                   </div>
                   <div className="flex flex-col gap-1">
-                    <div className="flex justify-between text-sm text-slate-500">
-                      <span>{completed}/{lang.totalLessons} lessons</span>
+                    <div className="flex justify-between text-xs text-slate-500">
+                      <span>{completed}/{lang.totalLessons}</span>
                       <span>{pct}%</span>
                     </div>
-                    <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-emerald-500 rounded-full transition-all"
                         style={{ width: `${pct}%` }}
